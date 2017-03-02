@@ -4,26 +4,26 @@ using UnityEngine;
 
 public class WordDictionary
 {
-	public static WordDictionary singleton = new WordDictionary();
-	private String _filePath = Application.dataPath + "/Resources/words.txt";
-	private HashSet<String> dictionary;
+	public static WordDictionary Singleton = new WordDictionary();
+	private readonly string _filePath = Application.dataPath + "/Resources/words.txt";
+	private readonly HashSet<string> _dictionary;
 	private WordDictionary ()
 	{
-		dictionary = new HashSet<String> ();
-		System.IO.StreamReader file = new System.IO.StreamReader (_filePath);
-		String line;
+		_dictionary = new HashSet<string> ();
+		var file = new System.IO.StreamReader (_filePath);
+		string line;
 		while ((line = file.ReadLine()) != null){
-			dictionary.Add (line);
+			_dictionary.Add (line);
 		}
 		file.Close ();
 	}
-	public String getFilePath()
+	public string GetFilePath()
 	{
 		return _filePath;
 	}
 		
-	public bool checkWord(String word){
-		return dictionary.Contains (word);
+	public bool CheckWord(string word){
+		return _dictionary.Contains (word.ToLower());
 	}
 }
 

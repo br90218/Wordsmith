@@ -6,7 +6,7 @@ public class StageManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		print (WordDictionary.singleton.getFilePath ());
+		print (WordDictionary.Singleton.GetFilePath ());
 	}
 	
 	// Update is called once per frame
