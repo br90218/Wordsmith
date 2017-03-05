@@ -9,6 +9,13 @@ public class PlayerControl : MonoBehaviour
     public static readonly int Attack = 0;
     public static readonly int Defend = 1;
     private int _mode;
+    [SerializeField] private GameObject _cannon;
+
+    public GameObject Cannon
+    {
+        get { return _cannon; }
+        set { _cannon = value; }
+    }
 
     // Use this for initialization
     private void Start()
@@ -54,6 +61,13 @@ public class PlayerControl : MonoBehaviour
         //play clip
         //play sound
         //shoot word
-        
+        var cannon = Instantiate(_cannon);
+        cannon.transform.position = new Vector3(0f, 1f, 0f);
+        foreach (var c in word)
+        {
+            var unit = GameObject.Find("StageManager").GetComponent<StageManager>().CharacterInstantiate(c, (int) Random.Range(0,3));
+            unit.transform.localPosition = new Vector3(0f, 1f, 0f);
+            unit.transform.SetParent(cannon.transform);
+        }
     }
 }
