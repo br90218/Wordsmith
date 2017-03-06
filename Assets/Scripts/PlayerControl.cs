@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Microsoft.Win32;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -30,7 +32,6 @@ public class PlayerControl : MonoBehaviour
         {
             print("player switched mode, now is " + _mode);
             _mode = (_mode == Attack ? Defend : Attack);
-
         }
         else
         {
@@ -47,7 +48,7 @@ public class PlayerControl : MonoBehaviour
                 {
                     print("Player entered String: " + _testString + "; word valid: " +
                           WordDictionary.Singleton.CheckWord(_testString));
-                    if(WordDictionary.Singleton.CheckWord((_testString))) ShootString(_testString);
+                    if (WordDictionary.Singleton.CheckWord((_testString))) ShootString(_testString);
                     _testString = "";
                 }
                 else
@@ -60,14 +61,19 @@ public class PlayerControl : MonoBehaviour
     {
         //play clip
         //play sound
-        //shoot word
+        //shoot word (below)
         var cannon = Instantiate(_cannon);
-        cannon.transform.position = new Vector3(0f, 1f, 0f);
+        var adjustment = 0f;
         foreach (var c in word)
         {
-            var unit = GameObject.Find("StageManager").GetComponent<StageManager>().CharacterInstantiate(c, (int) Random.Range(0,3));
-            unit.transform.localPosition = new Vector3(0f, 1f, 0f);
+            var unit = GameObject.Find("StageManager").GetComponent<StageManager>().CharacterInstantiate(c, (int) Random.Range(0, 3));
+            adjustment += unit.GetComponent<SpriteRenderer>().bounds.size.x / 2f;
+            unit.transform.localPosition = new Vector3(0f + adjustment, 1f, 0f);
+            adjustment += unit.GetComponent<SpriteRenderer>().bounds.size.x / 2f;
             unit.transform.SetParent(cannon.transform);
         }
+        cannon.transform.position = new Vector3(0f - adjustment / 2f, 1f, 0f); //This is just for debug use
+        cannon.GetComponent<Rigidbody2D>().AddForce(new Vector2(-1f * 1000, 0f));
+
     }
 }

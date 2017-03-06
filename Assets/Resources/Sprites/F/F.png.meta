@@ -1,12 +1,12 @@
 fileFormatVersion: 2
-guid: 5c767243c715f5a4fac01b286c23b4ab
-timeCreated: 1488724874
+guid: 676dc37cc0434b7439fe62907f0f760f
+timeCreated: 1488809662
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: A_0
-    21300002: A_1
-    21300004: A_2
+    21300000: F_0
+    21300002: F_1
+    21300004: F_2
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -43,7 +43,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 500
+  spritePixelsToUnits: 100
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -81,39 +81,39 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: A_0
+      name: F_0
       rect:
         serializedVersion: 2
-        x: 134
-        y: 1106
-        width: 811
-        height: 846
+        x: 199
+        y: 1059
+        width: 740
+        height: 1022
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: A_1
+      name: F_1
       rect:
         serializedVersion: 2
-        x: 1114
-        y: 1130
-        width: 941
-        height: 809
+        x: 1163
+        y: 1063
+        width: 844
+        height: 1023
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: A_2
+      name: F_2
       rect:
         serializedVersion: 2
-        x: 125
-        y: 127
-        width: 841
-        height: 849
+        x: 111
+        y: 0
+        width: 875
+        height: 1042
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
